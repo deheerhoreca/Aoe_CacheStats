@@ -110,7 +110,7 @@ class Aoe_CacheStats_Model_Cache extends Mage_Core_Model_Cache {
   }
   
   /**
-   * Append a log entry without writing to file yet
+   * Append a log entry, writing the log to disk every X messages to balance performance and observability during long jobs.
    *
    * @param  string  $type
    * @param  string  $id
