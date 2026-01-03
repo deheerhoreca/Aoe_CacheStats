@@ -83,7 +83,7 @@ class Aoe_CacheStats_Model_Cache extends Mage_Core_Model_Cache {
    */
   public function flush() {
     $start = microtime(true) * 1000;
-    $res   = parent::flush();
+    $res = parent::flush();
     $this->appendLog(
       self::TYPE_FLUSH,
       "",
@@ -95,12 +95,13 @@ class Aoe_CacheStats_Model_Cache extends Mage_Core_Model_Cache {
   /**
    * Clean cached data by specific tag
    *
-   * @param   array  $tags
+   * @param   array|string $tags
    * @return  bool
    */
   public function clean($tags = []) {
     $start = microtime(true) * 1000;
-    $res   = parent::clean($tags);
+    $tags = is_array($tags) ? $tags : [$tags];
+    $res = parent::clean($tags);
     $this->appendLog(
       self::TYPE_CLEAN,
       implode(", ", $tags),
