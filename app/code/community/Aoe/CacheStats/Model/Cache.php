@@ -18,7 +18,8 @@ class Aoe_CacheStats_Model_Cache extends Mage_Core_Model_Cache {
   protected $loggingEnabled = null;
   
   /**
-   * In-memory cache to reduce redundant small cache backend calls within the same request.
+   * In-memory cache to reduce redundant small cache backend calls within the same request,
+   * which happen quiete a lot with some third party modules and batch jobs.
    * @var array<string,string|false>
    */
   protected $memCache = [];
